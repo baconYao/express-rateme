@@ -1,0 +1,27 @@
+{
+  "name": "express-rateme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baconYao/express-rateme.git"
+  },
+  "author": "baconYao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baconYao/express-rateme/issues"
+  },
+  "homepage": "https://github.com/baconYao/express-rateme#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2"
+  }
+}
