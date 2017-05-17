@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/rateme');
+mongoose.connect('localhost:27017/rateme');
 
 app.use(express.static('public'));
 app.engine('ejs', engine);
@@ -22,7 +22,7 @@ app.use(session({
   secret: 'baconyaoSecretKey',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({mongooseConnection: mongoose.conection})
+  store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
 
 
