@@ -25,7 +25,7 @@ passport.use('local.signup', new LocalStrategy({
     }
 
     if(user) {
-      return done(null, false);
+      return done(null, false, req.flash('error', 'User with email already exist.'));
     }
 
     var newUser = new User();
@@ -38,3 +38,25 @@ passport.use('local.signup', new LocalStrategy({
     });
   })
 }));
+
+passport.use('local.login', new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password',
+  passReqToCallback: true
+}, (req, email, password, done) => {
+  User.findOne({'email': email}, (err, user) => {
+    if(err) {
+      return done(err);
+    }
+
+    var messages = [];
+
+    if(!user || !user.validPassword(password)) {
+      messages.push('Email doe not exist or Password is invalid');
+      return done(null, false, req.flash('error', messages));
+    }
+
+    return done(null, user);
+  })
+}));
+

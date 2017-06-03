@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const flash = require('connect-flash');
+const validator = require('express-validator');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(validator());
 
 app.use(session({
   secret: 'baconyaoSecretKey',
