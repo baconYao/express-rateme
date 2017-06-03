@@ -34,7 +34,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('../routes/user')(app);
+require('../routes/user')(app, passport);
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
